@@ -7,8 +7,8 @@ class Module {
     public function getAutoloaderConfig()
     {
         return array(
-            'Zend\Loader\ClassMapAutoloader' => array(__DIR__ . 'autoload_classmap.php',),
-            'Zend\Loader\ClassMapAutoloader' => array('namespace' => array(__DIR__ . '/src/' . __NAMESPACE__,),),
+            'Zend\Loader\ClassMapAutoloader' => array(__DIR__ . '/autoload_classmap.php',),
+            'Zend\Loader\ClassMapAutoloader' => array('namespace' => array(__DIR__ . '/src/' . __NAMESPACE__),),
             );
     }
     
