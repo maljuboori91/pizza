@@ -8,8 +8,7 @@
 return array(
     'modules' => array(
         'Application',
-        'Pizza',
-        'Test',
+        'Pizza'
     ),
     'module_listener_options' => array(
         'module_paths' => array(
