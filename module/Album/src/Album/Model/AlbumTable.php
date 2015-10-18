@@ -4,6 +4,7 @@ namespace Album\Model;
 
 use Zend\Db\TableGateway\TableGateway;
 
+
 class AlbumTable 
 {
     protected $tableGateway;
