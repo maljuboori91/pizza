@@ -2,7 +2,7 @@
 
 namespace Album\Model;
 
-class Album 
+class Album
 {
     public $id;
     public $artist;
@@ -10,9 +10,8 @@ class Album
     
     public function exchangeArray($data)
     {
-        $this->id       = (!empty($data['id'])) ? $data['id'] : null;
-        $this->artist   = (!empty($data['artist'])) ? $data['artist'] : null;
-        $this->title    = (!empty($data['title'])) ? $data['title'] : null;
+        $this->id       = (!empty($data['id']) ? $data['id'] : null);
+        $this->artist   = (!empty($data['artist']) ? $data['artist'] : null);
+        $this->title    = (!empty($data['title']) ? $data['title'] : null);
     }
 }
-
