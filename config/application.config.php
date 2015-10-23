@@ -9,7 +9,7 @@ return array(
     'modules' => array(
         'Application',
         'Album',
-        'Users'
+        'Users',
     ),
     'module_listener_options' => array(
         'module_paths' => array(
