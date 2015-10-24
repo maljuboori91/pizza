@@ -35,7 +35,7 @@ namespace Users\Model;
     {
         $data = array(
             'username' => $user->username,
-            'cat'      => $cat->cat,
+            'cat'      => $user->cat,
         );
         
         $id = (int) $user->id;
