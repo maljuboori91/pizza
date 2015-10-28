@@ -8,20 +8,19 @@ $this->headTitle($title);
 <p>
     <a href="<?php echo $this->url('users', array('action' => 'add')); ?>">Add new user</a>
 </p>
-<?php
-$user_username = array();
-$user_cat = array();
-foreach($users as $user) : 
-    $user_username[] = $user->username;
- endforeach;
-
- ?>
-<table ng-app="" ng-init="names=[<?php echo implode(',',$user_username); ?> ]" class='table'>
+<table>
     <tr>
         <th>Title</th>
         <th>User</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
     </tr>
-    <tr ng-repeat="x in names">
-        <td>{{ x }}</td>
+    <?php foreach($users as $user) : ?>
+    <tr>
+        <td><?php echo $this->escapeHtml($user->username); ?></td>
+        <td><?php echo $this->escapeHtml($user->cat); ?></td>
+        <td><a href="<?php echo $this->url('users', array('action' => 'edit', 'id' => $user->id)); ?>">Edit</a></td>
+        <td><a href="<?php echo $this->url('users', array('action' => 'delete', 'id' => $user->id)); ?>">Delete</a></td>
     </tr>
+    <?php endforeach; ?>
 </table>

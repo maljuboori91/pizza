@@ -42,12 +42,67 @@ class UsersController extends AbstractActionController
     
     public function editAction()
     {
+        $id = (int) $this->params()->fromRoute('id', 0);
         
+         if (!$id) {
+             return $this->redirect()->toRoute('users', array(
+                 'action' => 'add'
+             ));
+         }
+         
+         try {
+             $users = $this->getUsersTable()->getUser($id);
+            }
+         catch (\Exception $ex) {
+             return $this->redirect()->toRoute('users', array(
+                 'action' => 'index'
+             ));
+            }
+        
+        $form = new UsersForm();
+        $form->bind($users);
+        $form->get('submit')->setAttribute('value', 'Edit');
+        
+        $request = $this->getRequest();
+        if($request->isPost()) {
+            $form->setInputFilter($users->getInputFilter());
+            $form->setData($request->getPost());
+            
+            if($form->isValid()) {
+                $this->getUsersTable()->saveUser($users);
+                
+                return $this->redirect()->toRoute('users');
+            }
+        }
+        return array(
+            'id'    => $id,
+            'form'  => $form,
+        );
     }
     
     public function deleteAction()
     {
+        $id = (int) $this->params()->fromRoute('id', 0);
+        if(!$id) {
+            return $this->redirect()->toRoute('users');
+        }
         
+        $request = $this->getRequest();
+        if($request->isPost()) {
+            $del = $request->getPost('del', 'No');
+            
+            if($del == "Yes") {
+                $id = (int) $request->getPost('id');
+                $this->getUsersTable()->deleteUser($id);
+            }
+            
+            return $this->redirect()->toRoute('users');
+        }
+        
+        return array(
+            'id'    => $id,
+            'user'  => $this->getUsersTable()->getUser($id),
+        );
     }
     
     public function getUsersTable()

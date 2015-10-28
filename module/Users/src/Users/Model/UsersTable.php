@@ -24,7 +24,7 @@ namespace Users\Model;
         $id = (int) $id;
         $rowset = $this->tableGateway->select(array('id' => $id));
         $row = $rowset->current();
-        if($row) {
+        if(!$row) {
             throw new \Exception("Could not find row $id");
         }
         
@@ -44,7 +44,7 @@ namespace Users\Model;
         }
         else {
             if($this->getUser($id)) {
-                $this->tableGateway->update($data, array('id', $id));
+                $this->tableGateway->update($data, array('id' => $id));
             }
             else {
                 throw new \Exception('User id does not found');

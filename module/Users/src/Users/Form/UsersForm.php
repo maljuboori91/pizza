@@ -22,6 +22,9 @@ class UsersForm extends Form
            'options' => array(
                 'label' => 'Username',
             ),
+           'attributes' => array(
+               'class' => 'form-control'
+           ),
         ));
         
         
@@ -31,6 +34,9 @@ class UsersForm extends Form
             'options' => array(
                 'label' => 'Category'
             ),
+            'attributes' => array(
+               'class' => 'form-control'
+           ),
         ));
         
         $this->add(array(
@@ -39,6 +45,7 @@ class UsersForm extends Form
             'attributes' => array(
                 'value' => 'Go',
                 'id' => 'submitbutton',
+                'class' => 'form-control',
             ),
         ));
     }

@@ -20,6 +20,11 @@ class Users implements InputFilterAwareInterface
         $this->cat       = (!empty($data['cat'])) ? $data['cat'] : null;
     }
     
+    public function getArrayCopy()
+     {
+         return get_object_vars($this);
+     }
+    
     public function setInputFilter(InputFilterInterface $inputFilter)
     {
         throw new \Exception('Not used');
