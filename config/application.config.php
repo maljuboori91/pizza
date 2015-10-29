@@ -10,6 +10,8 @@ return array(
         'Application',
         'Album',
         'Users',
+        'Blog',
+        
     ),
     'module_listener_options' => array(
         'module_paths' => array(
