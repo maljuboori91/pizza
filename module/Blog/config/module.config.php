@@ -6,14 +6,19 @@
  */
 
 return array (
+    'service_manager' => array(
+        'invokables'  => array(
+            'Blog\Service\PostServiceInterface' => 'Blog\Service\PostService'
+        ),
+    ),
     'view_manager' => array (
         'template_path_stack' => array (
             __DIR__ . '/../view',
         ),
     ),
     'controllers' => array (
-        'invokables' => array (
-            'Blog\Controller\List' => 'Blog\Controller\ListController'
+         'factories' => array (
+             'Blog\Controller\List' => 'Blog\Factory\ListControllerFactory'
         ),
     ),
     'router' => array (
