@@ -11,6 +11,7 @@ return array(
         'Album',
         'Users',
         'Blog',
+        'Images',
         
     ),
     'module_listener_options' => array(
